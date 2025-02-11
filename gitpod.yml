@@ -1,0 +1,20 @@
+# .gitpod.yml
+image: node:18
+
+tasks:
+  - name: Install dependencies and start frontend
+    command: |
+      cd client
+      npm install
+      npm start &
+  - name: Install dependencies and start backend
+    command: |
+      cd server
+      npm install
+      npm run dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+  - port: 5000
+    onOpen: open-preview
